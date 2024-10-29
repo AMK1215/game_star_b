@@ -4,10 +4,9 @@ import Footer from './Footer'
 import Navbar from './Navbar'
 import FooterProviders from './FooterProviders'
 import {Toaster} from 'react-hot-toast'
-import { AuthContextProvider } from '../contexts/AuthContext'
-const Layout = () => {
+
+const UnAuthLayout = () => {
   return (
-    <AuthContextProvider>
       <div className='container'>
         <Toaster />
         <Navbar/>
@@ -15,8 +14,7 @@ const Layout = () => {
         <FooterProviders/>
         <Footer/>
       </div>
-    </AuthContextProvider>
   )
 }
 
-export default Layout
+export default UnAuthLayout

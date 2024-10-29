@@ -15,73 +15,80 @@ import BankPage from "../pages/BankPage";
 import AddBankPage from "../pages/AddBankPage";
 import ChangeLanguagePage from "../pages/ChangeLanguagePage";
 import GameLogsPage from "../pages/GameLogsPage";
+import UnAuthLayout from "../components/UnAuthLayout";
 
- export const router = createBrowserRouter([
-    {
-        path:'/',
-        element:<Layout/>,
-        children:[
+export const router = createBrowserRouter([
+   {
+      path: '/',
+      element: <Layout />,
+      children: [
          {
-            index:true,
-            element:<HomePage/> 
+            index: true,
+            element: <HomePage />
          },
          {
-            path:'/auth',
-            element:<AuthPage/> 
+            path: '/games',
+            element: <GamesPage />
          },
          {
-            path:'/games',
-            element:<GamesPage/> 
+            path: '/promotion',
+            element: <PromotionPage />
          },
          {
-            path:'/promotion',
-            element:<PromotionPage/> 
+            path: '/contact',
+            element: <ContactPage />
          },
          {
-            path:'/contact',
-            element:<ContactPage/> 
+            path: '/account',
+            element: <AccountPage />
          },
          {
-            path:'/account',
-            element:<AccountPage/> 
+            path: '/profile',
+            element: <ProfilePage />
          },
          {
-            path:'/profile',
-            element:<ProfilePage/> 
+            path: '/wallet',
+            element: <WalletPage />
          },
          {
-            path:'/wallet',
-            element:<WalletPage/> 
+            path: '/change-language',
+            element: <ChangeLanguagePage />
          },
          {
-            path:'/change-language',
-            element:<ChangeLanguagePage/> 
+            path: '/bank',
+            element: <BankPage />
          },
          {
-            path:'/bank',
-            element:<BankPage/> 
+            path: '/game-logs',
+            element: <GameLogsPage />
          },
          {
-            path:'/game-logs',
-            element:<GameLogsPage/> 
+            path: '/add-bank',
+            element: <AddBankPage />
+         }, ,
+         {
+            path: '/deposit',
+            element: <DepositPage />
          },
          {
-            path:'/add-bank',
-            element:<AddBankPage/> 
-         },,
-         {
-            path:'/deposit',
-            element:<DepositPage/> 
+            path: '/with-draw',
+            element: <WithDrawPage />
          },
          {
-            path:'/with-draw',
-            element:<WithDrawPage/> 
-         },
-         {
-            path:'/reset-password',
-            element:<ResetPasswordPage/> 
+            path: '/reset-password',
+            element: <ResetPasswordPage />
          }
-        ]
-    },
-    
- ])
+      ]
+   },
+   {
+      path: '/login',
+      element: <UnAuthLayout />,
+      children: [
+         {
+            index: true,
+            element: <AuthPage />
+         }
+      ]
+   },
+
+])
