@@ -1,5 +1,5 @@
-import React from 'react'
-import user from '../assets/images/profile.png'
+import React, { useContext } from 'react'
+import profile from '../assets/images/profile.png'
 import '../assets/css/account.css'
 import { FaLanguage, FaRegBell } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
@@ -12,8 +12,12 @@ import { MdLock, MdMail } from 'react-icons/md'
 import { LogoutOutlined } from '@ant-design/icons'
 import useLogout from "../hooks/useLogout"
 import { Spinner } from 'react-bootstrap'
+import { AuthContext } from '../contexts/AuthContext'
 
 const AccountPage = () => {
+    const { user } = useContext(AuthContext);
+    // console.log(user);
+    
     const { logout, loading } = useLogout();
     const handleLogout = async () => {
         try {
@@ -28,9 +32,9 @@ const AccountPage = () => {
         { icon: <FaUserCircle size={26} color='#00FFFF' />, name: 'My Profile', link: '/profile' },
         { icon: <IoWallet size={26} className='text-danger' />, name: 'My Wallet', link: '/wallet' },
         { icon: <IoWallet size={26} className='text-danger' />, name: 'Game Logs', link: '/game-logs' },
-        { icon: <RiBankCard2Fill size={26} className='text-primary' />, name: 'My Bank Card', link: '/bank' },
+        // { icon: <RiBankCard2Fill size={26} className='text-primary' />, name: 'My Bank Card', link: '/bank' },
         { icon: <BsFillGiftFill size={26} color='#FF00FF' />, name: 'My Promotion', link: '/promotion' },
-        { icon: <FaLanguage size={26} color='#FFFF00' />, name: 'Language', link: '/change-language' },
+        // { icon: <FaLanguage size={26} color='#FFFF00' />, name: 'Language', link: '/change-language' },
         { icon: <MdLock size={26} className='text-warning' />, name: 'Reset Password', link: '/reset-password' },
         { icon: <MdMail size={26} className='text-primary' />, name: 'Contact Us', link: '/contact' },
         { icon: <LogoutOutlined size={26} className='text-danger' />, name: 'Logout', onClick: handleLogout },
@@ -40,10 +44,10 @@ const AccountPage = () => {
             <div className="px-3 py-2 gradientBg">
                 <div className="d-flex align-items-center justify-content-between">
                     <div className='d-flex align-items-center gap-2'>
-                        <img src={user} className='accountProfile' />
+                        <img src={profile} className='accountProfile' />
                         <div>
-                            <p className="fw-semibold ">user@123</p>
-                            <small  >Tele: 09123345</small>
+                            <p className="fw-semibold ">{user?.user_name}</p>
+                            <small  >Tele: {user?.phone}</small>
                         </div>
                     </div>
                     <div className='d-flex align-items-center gap-3'>
