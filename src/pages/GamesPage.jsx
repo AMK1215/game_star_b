@@ -5,12 +5,14 @@ import useFetch from '../hooks/useFetch';
 import BASE_URL from '../hooks/baseUrl';
 import { Spinner } from 'react-bootstrap';
 import launchGame from '../hooks/LaunchGame';
+import launchLobby from '../hooks/LaunchLobby';
 
 const GamesPage = () => {
   const [type, setType] = useState(1);
   const [providers, setProviders] = useState([]);
   const { data } = useFetch(BASE_URL + '/gameTypeProducts/' + type);
   let gameProviders = data?.game_type?.products;
+  let gameLobbies = data?.game_lobby?.products;
   
   const [selectedTab, setSelectedTab] = useState('')
   const [searchParams] = useSearchParams();
@@ -38,6 +40,9 @@ const GamesPage = () => {
     }
   }, [searchParams, gameProviders]);
 
+  console.log(gameLobbies);
+  
+
   return (
     <div className='p-3'>
       <div className="cursor-pointer d-flex align-items-center gap-2 gameProviders">
@@ -62,6 +67,14 @@ const GamesPage = () => {
               </div>
             ))
           )
+        }
+        {
+          type == 3 && gameLobbies && gameLobbies?.map((game, index) => (
+              <div className='col-3 px-1 px-sm-2 mb-2 mb-sm-3 cursor-pointer' key={index} onClick={launchLobby(type, game.code)}>
+                <img src={game.imgUrl} className='img-fluid rounded-4 gameImg' />
+                {/* <small className='d-block text-center gameName'>{game.name}</small> */}
+              </div>
+          ))
         }
       </div> 
     </div>

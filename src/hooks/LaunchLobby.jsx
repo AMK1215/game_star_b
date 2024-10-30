@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
-import BASE_URL from "./baseURL";
+
 import { useNavigate } from "react-router-dom";
+import BASE_URL from "./baseUrl";
 
 const launchLobby = (type, provider) => async (e) => {
   e.preventDefault();
