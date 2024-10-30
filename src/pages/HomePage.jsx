@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../assets/css/home.css'
 import Banners from '../components/Banners'
 import Marquee from '../components/Marquee'
@@ -10,6 +10,8 @@ import GameTabs from '../components/GameTabs'
 import { Link } from 'react-router-dom'
 
  const HomePage = () => {
+
+
   return (
     <div>
       <div className="cursor-pointer px-2 py-2 d-flex align-items-center justify-content-between">
