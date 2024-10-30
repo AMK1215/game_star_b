@@ -1,3 +1,3 @@
-const BASE_URL = "https://superbet7.info/api";
+const BASE_URL = "https://bettingking.pro/api";
 
 export default BASE_URL;
