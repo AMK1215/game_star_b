@@ -6,7 +6,7 @@ import { message } from 'antd';
 
 const useLogin = () => {
     const [error, setError] = useState();
-    // const [errMsg, setErrMsg] = useState();
+    const [errMsg, setErrMsg] = useState();
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -30,13 +30,13 @@ const useLogin = () => {
         } catch (e) {
             setLoading(false);
             setError(e.response.data.errors);
-            // setErrMsg(e.response.data.message);
+            setErrMsg(e.response.data.message);
             return;
         }
         return null;
     };
 
-    return { login, error, loading };
+    return { login, error, errMsg, loading };
 };
 
 export default useLogin;

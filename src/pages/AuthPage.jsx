@@ -13,7 +13,7 @@ const AuthPage = () => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
 
-    const { login, loading, error } = useLogin();
+    const { login, loading, error, errMsg } = useLogin();
     const handleSubmit = async (e) => {
         e.preventDefault();
         let inputData = { 
@@ -94,6 +94,7 @@ const AuthPage = () => {
                             />
                         </div>
                         {error && error.user_name && <span className='text-danger'>*{error.user_name}</span>}
+                        {errMsg && <span className='text-danger'>*{errMsg}</span>}
                     </div>
                     <div className="mb-4">
                         <small className='mb-2 d-block'>
