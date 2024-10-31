@@ -7,7 +7,7 @@ export default function GameProviders({providers, type}) {
         <div>
             <div className="homeGamesContainer py-2 d-flex align-items-center gap-2 flex-nowrap cursor-pointer">
                 {providers && providers.map((game, index) => {
-                    return <div key={index} className='homeGame cursor-pointer' onClick={() => console.log('Hello')}>
+                    return <div key={index} className='homeGame cursor-pointer' onClick={launchLobby(type,game.code)}>
                         <img src={game.imgUrl} className='homeGameImg img-fluid  rounded-4 ' />
                         <small className='gameName text-center d-block'>{game.name}</small>
                     </div>

@@ -37,8 +37,20 @@ a{
 .w-full{
   width: 100%;
 }
+.swal2-popup{
+  width: 480px;
+  margin-left: -20px;
+  overflow: hidden;
+}
+.swal2-image{
+  margin-top: 20px;
+ }
 @media screen and (max-width:480px) {
   .container{
     width: 100%;
+  }
+  .swal2-popup{
+    width: 100%;
+    margin-left: 0;
   }
 }

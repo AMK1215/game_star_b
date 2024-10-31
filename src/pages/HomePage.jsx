@@ -8,12 +8,14 @@ import deposit from '../assets/images/deposit.png'
 import withdraw from '../assets/images/withdraw.png'
 import GameTabs from '../components/GameTabs'
 import { Link } from 'react-router-dom'
+import AdsBanner from '../components/AdsBanner'
 
  const HomePage = () => {
 
 
   return (
     <div>
+      <AdsBanner/>
       <div className="cursor-pointer px-2 py-2 d-flex align-items-center justify-content-between">
         <div className='d-flex align-items-center gap-4'>
             <Link to={'/deposit'} className="d-flex align-items-center gap-1">

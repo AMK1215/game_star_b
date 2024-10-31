@@ -2,7 +2,7 @@ import React from 'react'
 import BASE_URL from "../hooks/baseUrl"
 import useFetch from '../hooks/useFetch'
 import { casinoAllGames, fishAllGames, hotAllGames, slotAllGames, sportAllGames } from '../const/data'
-import GameProviders from './gameProviders';
+import GameProviders from './GameProviders';
 
 export default function Providers() {
     const {data: slots} = useFetch(BASE_URL + '/gameTypeProducts/1');
