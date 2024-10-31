@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo.jpg'
 import profile from '../assets/images/profile.png'
  import { Link } from 'react-router-dom'
 import { AiOutlineDollar } from 'react-icons/ai'

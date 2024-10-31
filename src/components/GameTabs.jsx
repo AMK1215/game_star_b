@@ -8,6 +8,7 @@ import '../assets/css/gameTabs.css'
 import { Link } from 'react-router-dom'
 
 import HotGames from './HotGames'
+import Providers from './Providers'
 
 const GameTabs = () => {
     const tabs=[
@@ -28,6 +29,7 @@ const GameTabs = () => {
             })}
       </div>
       {/* <HotGames /> */}
+      <Providers />
     </div>
   )
 }
