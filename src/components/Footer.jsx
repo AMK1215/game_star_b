@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
     const menus=[
         {name:'Home',link:'/',img:home,},
-        {name:'Browse',link:'/games?type=hot',img:games},
+        {name:'Browse',link:'/browser',img:games},
         {name:'Promotion',link:'/promotion',img:promo},
         {name:'Account',link:'/account',img:user},
         {name:'Contact',link:'/contact',img:heart},

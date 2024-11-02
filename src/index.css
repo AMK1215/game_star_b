@@ -45,6 +45,11 @@ a{
 .swal2-image{
   margin-top: 20px;
  }
+.custom-placeholder::placeholder {
+  color: #999; /* Change this to your desired color */
+  opacity: 1; /* Ensure color is fully applied */
+}
+
 @media screen and (max-width:480px) {
   .container{
     width: 100%;

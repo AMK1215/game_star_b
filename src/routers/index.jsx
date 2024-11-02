@@ -16,6 +16,7 @@ import AddBankPage from "../pages/AddBankPage";
 import ChangeLanguagePage from "../pages/ChangeLanguagePage";
 import GameLogsPage from "../pages/GameLogsPage";
 import UnAuthLayout from "../components/UnAuthLayout";
+import Browser from "../pages/Browser";
 
 export const router = createBrowserRouter([
    {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
          {
             path: '/games',
             element: <GamesPage />
+         },
+         {
+            path: '/browser',
+            element: <Browser />
          },
          {
             path: '/promotion',

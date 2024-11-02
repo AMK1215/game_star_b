@@ -1,14 +1,17 @@
 import React from 'react'
 import BASE_URL from "../hooks/baseUrl"
 import useFetch from '../hooks/useFetch'
-import { casinoAllGames, fishAllGames, hotAllGames, slotAllGames, sportAllGames } from '../const/data'
+// import { casinoAllGames, fishAllGames, hotAllGames, slotAllGames, sportAllGames } from '../const/data';
 import GameProviders from './GameProviders';
+import GameLists from './GameLists';
 
 export default function Providers() {
+    const {data: hotgames} = useFetch(BASE_URL + '/hotgamelist');
     const {data: slots} = useFetch(BASE_URL + '/gameTypeProducts/1');
     const {data: casinos} = useFetch(BASE_URL + '/gameTypeProducts/2');
     const {data: sport} = useFetch(BASE_URL + '/gameTypeProducts/3');
     const {data: fish} = useFetch(BASE_URL + '/gameTypeProducts/4');
+
     let slotProviders = slots?.game_type?.products;
     let casinoProviders = casinos?.game_type?.products;
     let fishProviders = fish?.game_type?.products;
@@ -17,6 +20,11 @@ export default function Providers() {
     
     return (
         <div>
+            <div className='mb-4'>
+                <h5 className='fw-semibold mt-3 mb-2'>Hot Games</h5>
+                <GameLists games={hotgames} />
+                {/* <GameProviders providers={slotProviders} type={1} /> */}
+            </div>
             <div className='mb-4'>
                 <h5 className='fw-semibold mt-3 mb-2'>Slots</h5>
                 <GameProviders providers={slotProviders} type={1} />

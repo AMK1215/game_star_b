@@ -12,7 +12,7 @@ import Providers from './Providers'
 
 const GameTabs = () => {
     const tabs=[
-        // {img:hot,name:"Hot",value:'hot'},
+        {img:hot,name:"Hot",value:'hot'},
         {img:slot,name:"Slot",value:'slot'},
         {img:casino,name:"Live Casino",value:'casino'},
         {img:fishing,name:"Fishing",value:'fishing'},

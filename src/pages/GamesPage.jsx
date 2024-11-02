@@ -10,6 +10,7 @@ import launchLobby from '../hooks/LaunchLobby';
 const GamesPage = () => {
   const [type, setType] = useState(1);
   const [providers, setProviders] = useState([]);
+  const [gameLists, setGameLists] = useState([]);
   const { data } = useFetch(BASE_URL + '/gameTypeProducts/' + type);
   let gameProviders = data?.game_type?.products;
   let gameLobbies = data?.game_lobby?.products;
@@ -17,8 +18,14 @@ const GamesPage = () => {
   const [selectedTab, setSelectedTab] = useState('')
   const [searchParams] = useSearchParams();
   const {data: games, loading} = useFetch(BASE_URL + '/game/gamelist/' + selectedTab + '/' + (type == 4 ? 8 : type));
+  const {data: hotGames} = useFetch(BASE_URL + '/hotgamelist');
 
+  
   useEffect(() => {
+    if (searchParams.get('type') == 'hot') {
+      setType(0);
+      setGameLists(hotGames);
+    }
     if (searchParams.get('type') == 'slot') {
       setType(1);
       setProviders(gameProviders && gameProviders);
@@ -40,7 +47,7 @@ const GamesPage = () => {
     }
   }, [searchParams, gameProviders]);
 
-  console.log(gameLobbies);
+  // console.log(gameLobbies);
   
 
   return (
@@ -72,6 +79,14 @@ const GamesPage = () => {
           type == 3 && gameLobbies && gameLobbies?.map((game, index) => (
               <div className='col-3 px-1 px-sm-2 mb-2 mb-sm-3 cursor-pointer' key={index} onClick={launchLobby(type, game.code)}>
                 <img src={game.imgUrl} className='img-fluid rounded-4 gameImg' />
+                {/* <small className='d-block text-center gameName'>{game.name}</small> */}
+              </div>
+          ))
+        }
+        {
+          type == 0 && hotGames && hotGames?.map((game, index) => (
+              <div className='col-3 px-1 px-sm-2 mb-2 mb-sm-3 cursor-pointer' key={index} onClick={launchGame(game.game_type_id, game.product_code, game.code)}>
+                <img src={game.image_url} className='img-fluid rounded-4 gameImg' />
                 {/* <small className='d-block text-center gameName'>{game.name}</small> */}
               </div>
           ))
