@@ -13,7 +13,10 @@ const Navbar = () => {
   return (
     <div className='nav d-flex align-items-center justify-content-between py-2 px-2'>
       <Link to={'/'}>
-      <img src={logo} className='logo' />
+      <img src={logo} 
+      width={"200px"}
+      // className='logo' 
+      />
       </Link>
       {/* <div className="d-flex align-items-center gap-2">
         <Link to={'/auth'} className="btn1  text-white rounded-2 px-3">
