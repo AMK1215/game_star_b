@@ -11,7 +11,7 @@ export default function Register() {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [password_confirmation, setPasswordConfirmation] = useState("");
-    // const [refCode, setRefCode] = useState("");
+    const [refCode, setRefCode] = useState("");
 
     const { register, loading, error, errMsg } = useRegister();
     const handleRegister = async (e) => {
@@ -22,7 +22,7 @@ export default function Register() {
             name,
             password,
             password_confirmation,
-            // referral_code: refCode
+            referral_code: refCode
         }
         await register(url, inputData);
     }
@@ -81,7 +81,7 @@ export default function Register() {
                 </div>
                 {error && error.password_confirmation && <small className='text-danger'>{error.password_confirmation}</small>}
             </div>
-            {/* <div className="mb-3">
+            <div className="mb-3">
                 <small className='mb-2 d-block'>
                     <span className="text-danger">*</span> Referral Code
                 </small>
@@ -93,7 +93,7 @@ export default function Register() {
                     />
                 </div>
                 {error && error?.referral_code && <small className='text-danger'>{error?.referral_code}</small>}
-            </div> */}
+            </div>
             <button type='submit' className="btn2 fw-semibold mt-3 text-white w-full py-2 text-center rounded-3">
                 {loading ? <Spinner size='sm' className='me-2' /> : ""}
                 Create Account
