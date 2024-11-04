@@ -57,7 +57,7 @@ const AccountPage = () => {
                         <FaRegBell size={25} />
                     </div>
                 </div>
-                <div className="row mt-3">
+                {/* <div className="row mt-3">
                     <div className="col-6 px-2">
                         <div className="rounded-3 bg-primary p-2">
                             <small className=" d-block mb-1 fw-semibold">Balance</small>
@@ -70,7 +70,7 @@ const AccountPage = () => {
                             <p className="fw-semibold">0</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="p-2">
                 <div className='p-2  rounded-3' style={{ background: '#4D4573' }}>
