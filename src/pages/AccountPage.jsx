@@ -31,7 +31,7 @@ const AccountPage = () => {
     const menus = [
         { icon: <FaUserCircle size={26} color='#00FFFF' />, name: 'My Profile', link: '/profile' },
         { icon: <IoWallet size={26} className='text-danger' />, name: 'My Wallet', link: '/wallet' },
-        { icon: <IoWallet size={26} className='text-danger' />, name: 'Game Logs', link: '/game-logs' },
+        // { icon: <IoWallet size={26} className='text-danger' />, name: 'Game Logs', link: '/game-logs' },
         // { icon: <RiBankCard2Fill size={26} className='text-primary' />, name: 'My Bank Card', link: '/bank' },
         { icon: <BsFillGiftFill size={26} color='#FF00FF' />, name: 'My Promotion', link: '/promotion' },
         // { icon: <FaLanguage size={26} color='#FFFF00' />, name: 'Language', link: '/change-language' },
