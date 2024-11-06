@@ -5,14 +5,16 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import useFetch from '../hooks/useFetch';
 import BASE_URL from '../hooks/baseUrl';
+import { LanguageContext } from '../contexts/LanguageContext';
 
 
 const WalletPage = () => {
   const { user } = useContext(AuthContext);
+  const { content } = useContext(LanguageContext);
   const [selectedTab, setSelectedTab] = useState(1);
   const tabs = [
-    { name: 'Deposit', value: 1 },
-    { name: 'Withdraw', value: 2 },
+    { name: content?.wallet?.deposit, value: 1 },
+    { name: content?.wallet?.withdraw, value: 2 },
   ];
   const { data: deposit } = useFetch(BASE_URL + "/transaction/deposit-log");
   const { data: withdraw } = useFetch(BASE_URL + "/transaction/withdraw-log");
@@ -22,23 +24,23 @@ const WalletPage = () => {
   return (
     <div className=''>
       <div className="gradientBg text-center pt-4 pb-5">
-        <small className="d-block b-2">Wallet Balance</small>
+        <small className="d-block b-2 mb-2">{content?.wallet?.wallet_balance}</small>
         <h2 className="fw-semibold">K {user?.balance}</h2>
         <div className="row mt-3">
           <div className="col-6 px-2">
             <Link to={'/deposit'} className="rounded-5 depositBtn text-center py-2 px-4">
-              Deposit
+              {content?.wallet?.deposit}
             </Link>
           </div>
           <div className="col-6 px-2">
             <Link to={'/with-draw'} className="rounded-5 border border-white withDrawBtn text-center py-2 px-4">
-              Withdraw
+              {content?.wallet?.withdraw}
             </Link>
           </div>
         </div>
       </div>
       <div className="profileBg rounded-5 p-3">
-        <p className="d-block text-white mb-3">Transaction History</p>
+        <p className="d-block text-white mb-3">{content?.wallet?.trans_history}</p>
         <div className="d-flex align-items-center flex-wrap gap-1 text-white mb-3">
           {tabs.map((tab, index) => {
             return <div key={index} onClick={() => setSelectedTab(tab.value)} className={`  py-2 px-2 ${selectedTab === tab.value ? 'activeBg' : ''}`}>
@@ -52,13 +54,13 @@ const WalletPage = () => {
             <Table striped bordered hover>
               <thead>
                 <tr>
-                  <th>No</th>
-                  <th>Acc Name</th>
-                  <th>Bank</th>
-                  <th>Type</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                  <th>Date</th>
+                  <th>{content?.wallet?.no}</th>
+                  <th>{content?.wallet?.account}</th>
+                  <th>{content?.wallet?.bank}</th>
+                  <th>{content?.wallet?.type}</th>
+                  <th>{content?.wallet?.amount}</th>
+                  <th>{content?.wallet?.status}</th>
+                  <th>{content?.wallet?.date}</th>
                 </tr>
               </thead>
               <tbody>

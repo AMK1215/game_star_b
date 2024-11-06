@@ -9,9 +9,10 @@ import withdraw from '../assets/images/withdraw.png'
 import GameTabs from '../components/GameTabs'
 import { Link } from 'react-router-dom'
 import AdsBanner from '../components/AdsBanner'
+import { LanguageContext } from '../contexts/LanguageContext'
 
  const HomePage = () => {
-
+  const { content } = useContext(LanguageContext);
 
   return (
     <div>
@@ -20,11 +21,11 @@ import AdsBanner from '../components/AdsBanner'
         <div className='d-flex align-items-center gap-4'>
             <Link to={'/deposit'} className="d-flex align-items-center gap-1">
               <img src={deposit} className='moneyImg' />
-              <small>Deposit</small>
+              <small>{content?.wallet?.deposit}</small>
             </Link>
             <Link to={'/with-draw'} className="d-flex align-items-center gap-1">
               <img src={withdraw} className='moneyImg' />
-              <small>WithDraw</small>
+              <small>{content?.wallet?.withdraw}</small>
             </Link>
         </div>
         <Link to={'/contact'} className='d-flex align-items-center gap-3'>

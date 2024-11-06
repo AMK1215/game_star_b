@@ -5,9 +5,12 @@ import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './routers'
 import 'react-toastify/dist/ReactToastify.css';
+import { LanguageContextProvider } from './contexts/LanguageContext'
  
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <LanguageContextProvider>
+      <RouterProvider router={router} />
+    </LanguageContextProvider>
   </React.StrictMode>,
 )

@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState, useMemo } from "react";
 import en_data from "../lang/en";
 import mm_data from "../lang/mm";
-import ta_data from "../lang/ta";
 
 const LanguageContext = createContext({
     updateLanguage: () => { },
@@ -31,9 +30,7 @@ const LanguageContextProvider = ({ children }) => {
     useEffect(() => {
         if (language === "mm") {
             setContent(mm_data);
-        } else if (language === "ta") {
-            setContent(ta_data);
-        } else {
+        }else {
             setContent(en_data);
         }
     }, [language]);

@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import useFetch from '../hooks/useFetch';
 import BASE_URL from '../hooks/baseUrl';
 import launchGame from '../hooks/LaunchGame';
 import { Spinner } from 'react-bootstrap';
+import { LanguageContext } from '../contexts/LanguageContext';
 
 export default function Browser() {
+    const  { content } = useContext(LanguageContext);
     const [name, setName] = useState("");
     const { data: games, loading } = useFetch(BASE_URL + "/gameFilter?name=" + name);
     console.log(games)
@@ -12,7 +14,7 @@ export default function Browser() {
     return (
         <>
             <div className="px-4 py-4">
-                <h5 className="text-white">Browser</h5>
+                <h5 className="text-white">{content?.nav?.browse}</h5>
                 <input type="text"
                     className="form-control custom-placeholder bg-transparent text-white border-1 border-top-0 border-start-0 border-end-0"
                     placeholder='Search'

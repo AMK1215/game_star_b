@@ -5,7 +5,7 @@ import { Spinner } from 'react-bootstrap';
 import acc from '../../assets/images/inputAccount.png'
 import pw from '../../assets/images/inputPw.png'
 
-export default function Login() {
+export default function Login({content}) {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
 
@@ -26,7 +26,7 @@ export default function Login() {
             <form onSubmit={handleSubmit}>
                 <div className="mb-5">
                     <small className='mb-2 d-block'>
-                        <span className="text-danger">*</span> Username
+                        <span className="text-danger">*</span> {content?.profile?.username}
                     </small>
                     <div className="d-flex items-center gap-2 py-1 px-2 rounded-3 customInput">
                         <img src={acc} className='inputImg mt-1' />
@@ -40,7 +40,7 @@ export default function Login() {
                 </div>
                 <div className="mb-4">
                     <small className='mb-2 d-block'>
-                        <span className="text-danger">*</span> Password
+                        <span className="text-danger">*</span> {content?.auth?.password}
                     </small>
                     <div className="d-flex items-center gap-2 py-1 px-2 rounded-3 customInput">
                         <img src={pw} className='inputImg mt-1' />
@@ -53,7 +53,7 @@ export default function Login() {
                 </div>
                 <button type='submit' className="btn2 fw-semibold mt-3 text-white w-full py-2 text-center rounded-3">
                     {loading ? <Spinner className='me-1' animation="border" size="sm" /> : ""}
-                    Login
+                    {content?.auth?.login}
                 </button>
             </form>
         </>

@@ -13,9 +13,11 @@ import { LogoutOutlined } from '@ant-design/icons'
 import useLogout from "../hooks/useLogout"
 import { Spinner } from 'react-bootstrap'
 import { AuthContext } from '../contexts/AuthContext'
+import { LanguageContext } from '../contexts/LanguageContext'
 
 const AccountPage = () => {
     const { user } = useContext(AuthContext);
+    const { content } = useContext(LanguageContext);
     // console.log(user);
     
     const { logout, loading } = useLogout();
@@ -29,15 +31,15 @@ const AccountPage = () => {
     };
 
     const menus = [
-        { icon: <FaUserCircle size={26} color='#00FFFF' />, name: 'My Profile', link: '/profile' },
-        { icon: <IoWallet size={26} className='text-danger' />, name: 'My Wallet', link: '/wallet' },
+        { icon: <FaUserCircle size={26} color='#00FFFF' />, name: content?.profile?.my_profile, link: '/profile' },
+        { icon: <IoWallet size={26} className='text-danger' />, name: content?.profile?.my_wallet, link: '/wallet' },
         // { icon: <IoWallet size={26} className='text-danger' />, name: 'Game Logs', link: '/game-logs' },
         // { icon: <RiBankCard2Fill size={26} className='text-primary' />, name: 'My Bank Card', link: '/bank' },
-        { icon: <BsFillGiftFill size={26} color='#FF00FF' />, name: 'My Promotion', link: '/promotion' },
+        { icon: <BsFillGiftFill size={26} color='#FF00FF' />, name: content?.profile?.my_promotion, link: '/promotion' },
         // { icon: <FaLanguage size={26} color='#FFFF00' />, name: 'Language', link: '/change-language' },
-        { icon: <MdLock size={26} className='text-warning' />, name: 'Reset Password', link: '/reset-password' },
-        { icon: <MdMail size={26} className='text-primary' />, name: 'Contact Us', link: '/contact' },
-        { icon: <LogoutOutlined size={26} className='text-danger' />, name: 'Logout', onClick: handleLogout },
+        { icon: <MdLock size={26} className='text-warning' />, name: content?.profile?.change_password, link: '/reset-password' },
+        { icon: <MdMail size={26} className='text-primary' />, name: content?.profile?.contact_us, link: '/contact' },
+        { icon: <LogoutOutlined size={26} className='text-danger' />, name: content?.profile?.logout, onClick: handleLogout },
     ]
     return (
         <div>
