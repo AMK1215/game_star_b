@@ -10,6 +10,7 @@ import GameTabs from '../components/GameTabs'
 import { Link } from 'react-router-dom'
 import AdsBanner from '../components/AdsBanner'
 import { LanguageContext } from '../contexts/LanguageContext'
+import { BiDownload } from 'react-icons/bi'
 
  const HomePage = () => {
   const { content } = useContext(LanguageContext);
@@ -28,9 +29,13 @@ import { LanguageContext } from '../contexts/LanguageContext'
               <small>{content?.wallet?.withdraw}</small>
             </Link>
         </div>
-        <Link to={'/contact'} className='d-flex align-items-center gap-3'>
-          <FaRegCommentDots size={22} />
-          <FaRegBell size={22} />
+        <Link to={'https://gamestar77.online/game_star.apk'} target='_blank' className='d-flex align-items-center gap-3'>
+          <BiDownload size={22} />
+          <small>
+            {content?.nav?.download}
+          </small>
+          {/* <FaRegCommentDots size={22} /> */}
+          {/* <FaRegBell size={22} /> */}
         </Link>
       </div>
       <Banners/>

@@ -38,7 +38,8 @@ const en_data = {
         money_transfer: "Money Transfer",
         logs: "Logs",
         promotion: "Promotion",
-        account: "Account"
+        account: "Account",
+        download: "Download"
     },
     game_type: {
         hot: "Hot",
