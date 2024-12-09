@@ -17,7 +17,7 @@ const Navbar = () => {
       <img src={logo} 
       width={"200px"}
       // className='logo' 
-      />
+      />111
       </Link>
       {/* <div className="d-flex align-items-center gap-2">
         <Link to={'/auth'} className="btn1  text-white rounded-2 px-3">
