@@ -4,7 +4,7 @@ import useFetch from '../hooks/useFetch'
 import BASE_URL from '../hooks/baseUrl'
  
 const Marquee = () => {
-  const {data: bannerText} = useFetch(BASE_URL + "/bannerText");
+  const {data: bannerText} = useFetch(BASE_URL + "/banner_Text");
   // console.log(bannerText);
   
   return (

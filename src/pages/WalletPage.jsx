@@ -16,8 +16,8 @@ const WalletPage = () => {
     { name: content?.wallet?.deposit, value: 1 },
     { name: content?.wallet?.withdraw, value: 2 },
   ];
-  const { data: deposit } = useFetch(BASE_URL + "/transaction/deposit-log");
-  const { data: withdraw } = useFetch(BASE_URL + "/transaction/withdraw-log");
+  const { data: deposit } = useFetch(BASE_URL + "/depositlog");
+  const { data: withdraw } = useFetch(BASE_URL + "/withdrawlog");
   // console.log(withdraw);
 
 

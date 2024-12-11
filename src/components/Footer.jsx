@@ -21,7 +21,7 @@ const Footer = () => {
         {name: content?.nav?.contact,link:'/contact',img:heart},
     ]
   return (
-    <div className='footer gradientBg cursor-pointer py-2 px-2 px-sm-3'>
+    <div className='footer gradientBg cursor-pointer py-2'>
       <div className="row ">
         {menus.map((menu,index)=>{
             return  <Link to={menu.link} className='text-center footerCol px-1 px-sm-0' key={index} >

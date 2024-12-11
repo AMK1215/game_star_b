@@ -13,7 +13,7 @@ const ResetPasswordPage = () => {
   const { inputSubmit, error, loading } = useFormSubmit();
   const change = async (e) => {
     e.preventDefault();
-    let url = BASE_URL + "/changePassword";
+    let url = BASE_URL + "/change-password";
     let inputData = { current_password, password, password_confirmation };
     let method = "POST";
     let redirect = '/profile';

@@ -17,8 +17,6 @@ const GameTabs = () => {
         {img:hot,name: content?.game_type?.hot,value:'hot'},
         {img:slot,name: content?.game_type?.slot,value:'slot'},
         {img:casino,name: content?.game_type?.casino,value:'casino'},
-        {img:fishing,name: content?.game_type?.fish,value:'fishing'},
-        {img:sport,name: content?.game_type?.sport,value:'sport'},
     ]
   return (
     <div className='px-2 py-3'>

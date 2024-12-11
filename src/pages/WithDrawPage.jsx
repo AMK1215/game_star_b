@@ -12,7 +12,7 @@ const WithDrawPage = () => {
   const [account_name, setAccountName] = useState("");
   const [note, setNote] = useState("");
 
-  const { data: banks } = useFetch(BASE_URL + '/payment-type');
+  const { data: banks } = useFetch(BASE_URL + '/agentPaymentType');
   const bank = banks && banks.find(bank => bank.id == parseInt(banks[0]?.id));
 
   useEffect(() => {
@@ -25,13 +25,13 @@ const WithDrawPage = () => {
     e.preventDefault();
     const inputData = {
       account_name,
-      account_no,
+      account_number: account_no,
       amount,
       "payment_type_id": payment,
       "note": note,
     }
     // console.log(inputData);
-    let url = BASE_URL + '/transaction/withdraw';
+    let url = BASE_URL + '/withdraw';
     let method = 'POST';
     let redirect = "/wallet";
     let msg = "Withdraw Successful";
@@ -46,12 +46,12 @@ const WithDrawPage = () => {
       <form onSubmit={withdraw}>
         <div className="mb-3">
           <small className="customInputTitle">Bank Account</small>
-          <select className='w-full mt-2 rounded-2  py-1 px-2 customInput  text-black'
+          <select className='form-control form-select bg-transparent text-white'
             onChange={e => setPayment(e.target.value)}
             value={payment}
           >
             {banks && banks.map((bank, index) => (
-              <option key={index} value={bank.id}>{bank.name}</option>
+              <option key={index} value={bank.payment_type_id}>{bank.payment_type}</option>
             ))}
           </select>
         </div>
@@ -71,7 +71,7 @@ const WithDrawPage = () => {
             onChange={(e) => setAccountNo(e.target.value)}
             value={account_no}
           />
-          {error && error.account_no && <span className='text-danger'>{error.account_no}</span>}
+          {error && error.account_number && <span className='text-danger'>{error.account_number}</span>}
         </div>
         <div className="mb-3">
           <small className="customInputTitle">Amount</small>

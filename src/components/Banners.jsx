@@ -12,7 +12,7 @@ const Banners = () => {
        <Carousel>
         {banners && banners.map((banner,index)=>{
             return  <Carousel.Item key={index} > 
-                <img src={banner.img_url} className='img-fluid' />
+                <img src={banner.img_url} className='' width={"100%"} height="200px" />
             </Carousel.Item>
         })}
       </Carousel>

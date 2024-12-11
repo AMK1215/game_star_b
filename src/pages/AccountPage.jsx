@@ -14,6 +14,7 @@ import useLogout from "../hooks/useLogout"
 import { Spinner } from 'react-bootstrap'
 import { AuthContext } from '../contexts/AuthContext'
 import { LanguageContext } from '../contexts/LanguageContext'
+import { BiGame } from 'react-icons/bi'
 
 const AccountPage = () => {
     const { user } = useContext(AuthContext);
@@ -33,7 +34,7 @@ const AccountPage = () => {
     const menus = [
         { icon: <FaUserCircle size={26} color='#00FFFF' />, name: content?.profile?.my_profile, link: '/profile' },
         { icon: <IoWallet size={26} className='text-danger' />, name: content?.profile?.my_wallet, link: '/wallet' },
-        // { icon: <IoWallet size={26} className='text-danger' />, name: 'Game Logs', link: '/game-logs' },
+        { icon: <BiGame size={26} className='text-danger' />, name: 'Game Logs', link: '/game-logs' },
         // { icon: <RiBankCard2Fill size={26} className='text-primary' />, name: 'My Bank Card', link: '/bank' },
         { icon: <BsFillGiftFill size={26} color='#FF00FF' />, name: content?.profile?.my_promotion, link: '/promotion' },
         // { icon: <FaLanguage size={26} color='#FFFF00' />, name: 'Language', link: '/change-language' },

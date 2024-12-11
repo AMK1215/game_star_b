@@ -7,19 +7,19 @@ import useFormSubmit from '../hooks/useFormSubmit';
 import { Spinner } from 'react-bootstrap';
 
 const DepositPage = () => {
-    const {data:banks} = useFetch(BASE_URL + '/agent-payment-type');
+    const {data:banks} = useFetch(BASE_URL + '/agentPaymentType');
     const [paymentType, setPaymentType] = useState();
     const bank = banks && banks.find(bank => bank.id == parseInt(paymentType ?? banks[0]?.id));
     const [amount, setAmount] = useState(0);
     const [transNo, setTransNo] = useState('');
-    const [note, setNote] = useState('');
+    // const [note, setNote] = useState('');
 
     useEffect(() => {
         setPaymentType(bank && bank?.id);
     }, [bank]);
     
     const handleCopyText = () => {
-        navigator.clipboard.writeText(bank?.account_no);
+        navigator.clipboard.writeText(bank?.account_number);
         toast.success("Copied", {
             position: "top-right",
             autoClose: 1000,
@@ -34,12 +34,11 @@ const DepositPage = () => {
     const deposit = async (e) => {
         e.preventDefault();
         let inputData = {
-            agent_payment_id: paymentType,
+            agent_payment_type_id: paymentType,
             amount: amount,
             refrence_no: transNo,
-            note: note
         }
-        let url = BASE_URL + '/transaction/deposit';
+        let url = BASE_URL + '/deposit';
         let method = 'POST';
         let redirect = "/wallet";
         let msg = "Deposit Successful";
@@ -55,11 +54,11 @@ const DepositPage = () => {
                 <div className="d-flex justify-content-between align-items-center">
                     <div className="d-flex">
                         <div>
-                            <img className="rounded-3 shadow" src={bank?.payment_type?.image_url} width={50} alt="" />
+                            <img className="rounded-3 shadow" src={bank?.image} width={50} alt="" />
                         </div>
                         <div className="ms-2">
                             <h6 className="fw-bold">{bank?.account_name}</h6>
-                            <h6 className="fw-bold">{bank?.account_no}</h6>
+                            <h6 className="fw-bold">{bank?.account_number}</h6>
                         </div>
                     </div>
                     <div>
@@ -77,7 +76,7 @@ const DepositPage = () => {
                     onChange={e => setPaymentType(e.target.value)}
                     >
                         {banks && banks.map((bank, index) => (
-                            <option key={index} value={bank.id}>{bank.payment_type.name}</option>
+                            <option key={index} value={bank.id}>{bank.payment_type}</option>
                         ))}
                     </select>
                 </div>
@@ -100,15 +99,6 @@ const DepositPage = () => {
                     value={transNo}
                     />
                     {error && error.refrence_no && <span className='text-danger'>{error.refrence_no}</span>}
-                </div>
-                <div className="mb-3">
-                    <small className="customInputTitle">Note</small>
-                    <textarea className='w-full customInput bg-transparent' 
-                    placeholder='Enter note'
-                    onChange={e => setNote(e.target.value)}
-                    value={note}
-                    ></textarea>
-                    {error && error.note && <span className='text-danger'>{error.note}</span>}
                 </div>
                 <button type='submit' className="mt-4 py-2 text-white btn2 w-full rounded-5">
                     {loading && <Spinner size={20} className='me-2' />}
