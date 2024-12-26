@@ -53,7 +53,7 @@ const GamesPage = () => {
   
 
   return (
-    <div className='pt-4 px-4 pb-5' style={{ overflow: 'hidden' }}>
+    <div className='pt-4 px-2 pb-5' style={{ overflow: 'hidden' }}>
       <h5>{type == 1 ? 'Hot Games' : type == 2 ? 'Slot Games' : type == 6 ? 'Casino Games' : ''}</h5>
       <div className="cursor-pointer d-flex align-items-center gap-2 gameProviders">
         {providers?.map((item, index) => {
@@ -68,7 +68,7 @@ const GamesPage = () => {
           loading ? <Spinner /> : (
             games && games?.map((game,index)=>(
               <div className='col-3 mb-2 mb-sm-3 cursor-pointer' key={index} onClick={launchGame(game.game_code)}>
-                <img src={game.image_url} className='img-fluid rounded-4 w-100' style={{ minHeight: '80px'}} />
+                <img src={game.image_url} className='img-fluid rounded-4 w-100' />
                 <small className='d-block text-center gameName'>{game.game_name}</small>
               </div>
             ))
