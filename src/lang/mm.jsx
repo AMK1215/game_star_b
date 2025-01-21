@@ -41,11 +41,15 @@ const mm_data = {
         download: "ဒေါင်းလုတ်ဆွဲရန်"
     },
     game_type: {
+        all: "ဂိမ်းအားလုံး",
         hot: "ဟော့ဂိမ်း",
+        fishing: "ငါးပစ်ဂိမ်း",
         slot: "စလော့",
-        fish: "ငါးပစ်",
+        arcade: "အာကိတ်",
         casino: "ကာစီနို",
-        sport: "အားကစား",
+        table: "တေဘယ်",
+        lottery: "ထီ",
+        bingo: "ဘင်ဂို"
     },
     wallet: {
         deposit: "ငွေသွင်း",

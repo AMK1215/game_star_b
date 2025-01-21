@@ -29,6 +29,8 @@ const useFormSubmit = () => {
       if (!res.ok) {
         if (res.status === 422) {
           setError(data.errors);
+        }else if (res.status === 401) {
+          message.error(data.message);
         }else {
           setError("An unexpected error occurred.");
         }

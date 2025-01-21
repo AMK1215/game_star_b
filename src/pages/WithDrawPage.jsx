@@ -10,7 +10,8 @@ const WithDrawPage = () => {
   const [payment, setPayment] = useState("");
   const [account_no, setAccountNo] = useState("");
   const [account_name, setAccountName] = useState("");
-  const [note, setNote] = useState("");
+  // const [note, setNote] = useState("");
+  const [password, setPassword] = useState("");
 
   const { data: banks } = useFetch(BASE_URL + '/agentPaymentType');
   const bank = banks && banks.find(bank => bank.id == parseInt(banks[0]?.id));
@@ -19,7 +20,7 @@ const WithDrawPage = () => {
       setPayment(bank && banks[0]?.id);
   }, [bank]);
 
-  const { inputSubmit, error, loading } = useFormSubmit();
+  const { inputSubmit, error, errMsg, loading } = useFormSubmit();
 
   const withdraw = async (e) => {
     e.preventDefault();
@@ -28,10 +29,11 @@ const WithDrawPage = () => {
       account_number: account_no,
       amount,
       "payment_type_id": payment,
-      "note": note,
+      // "note": note,
+      password
     }
     // console.log(inputData);
-    let url = BASE_URL + '/withdraw';
+    let url = BASE_URL + '/withdrawTest';
     let method = 'POST';
     let redirect = "/wallet";
     let msg = "Withdraw Successful";
@@ -80,10 +82,10 @@ const WithDrawPage = () => {
             onChange={(e) => setAmount(e.target.value)}
             value={amount}
           />
-          {error && error.amount && <span className='text-danger'>{error.amount}</span>}
+          {error ? (error.amount && <span className='text-danger'>{error.amount}</span>) : errMsg && <span className='text-danger'>{errMsg}</span>}
         </div>
 
-        <div className="mb-3">
+        {/* <div className="mb-3">
           <small className="customInputTitle">Note</small>
           <textarea className='w-full customInput bg-transparent'
             placeholder='Enter note'
@@ -91,6 +93,16 @@ const WithDrawPage = () => {
             value={note}
           ></textarea>
           {error && error.note && <span className='text-danger'>{error.note}</span>}
+        </div> */}
+
+        <div className="mb-3">
+          <small className="customInputTitle">Password</small>
+          <input type="password"
+            className='w-full customInput'
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          {error && error.password && <span className='text-danger'>{error.password}</span>}
         </div>
         <button type='submit' className="mt-4 py-2 text-white btn2 w-full rounded-5">
         {loading && <Spinner size="sm" className='me-2' />}

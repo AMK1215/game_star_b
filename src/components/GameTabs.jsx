@@ -15,8 +15,13 @@ const GameTabs = () => {
   const { content } = useContext(LanguageContext);
     const tabs=[
         {img:hot,name: content?.game_type?.hot,value:'hot'},
+        {img:hot,name: content?.game_type?.fishing,value:'fishing'},
         {img:slot,name: content?.game_type?.slot,value:'slot'},
+        {img:casino,name: content?.game_type?.arcade,value:'arcade'},
+        {img:casino,name: content?.game_type?.table,value:'table'},
         {img:casino,name: content?.game_type?.casino,value:'casino'},
+        {img:casino,name: content?.game_type?.lottery,value:'lottery'},
+        {img:casino,name: content?.game_type?.bingo,value:'bingo'},
     ]
   return (
     <div className='px-2 py-3'>

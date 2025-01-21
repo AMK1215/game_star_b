@@ -42,11 +42,15 @@ const en_data = {
         download: "Download"
     },
     game_type: {
-        hot: "Hot",
+        all: "All Games",
+        hot: "Hot Games",
+        fishing: "Fishing",
         slot: "Slots",
-        fish: "Fishing",
+        arcade: "Arcade",
         casino: "Live Casino",
-        sport: "Sport Book",
+        table: "Table",
+        lottery: "Lottery",
+        bingo: "Bingo",
     },
     wallet: {
         deposit: "Deposit",
